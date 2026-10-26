@@ -1,0 +1,30 @@
+{
+  "note": "Preliminary proof of concept. The two runs differ in prediction target and loss (semantic CE + post-hoc mapping vs. direct binary BCE), so this comparison does not isolate the causal effect of language priors.",
+  "backbones": {
+    "baseline": "facebook/dinov3-vits16-pretrain-lvd1689m",
+    "language": "facebook/dinov3-vits16-pretrain-lvd1689m"
+  },
+  "num_val_images": 100,
+  "metrics": {
+    "pixel_accuracy": {
+      "baseline": 0.9732329670249378,
+      "language": 0.976429656612813,
+      "language_minus_baseline": 0.0031966895878752233
+    },
+    "traversable_iou": {
+      "baseline": 0.9437714163639913,
+      "language": 0.950818254137592,
+      "language_minus_baseline": 0.0070468377736007115
+    },
+    "non_traversable_iou": {
+      "baseline": 0.9513969491706925,
+      "language": 0.9566976756418099,
+      "language_minus_baseline": 0.005300726471117345
+    },
+    "mean_iou": {
+      "baseline": 0.9475841827673419,
+      "language": 0.953757964889701,
+      "language_minus_baseline": 0.006173782122359084
+    }
+  }
+}

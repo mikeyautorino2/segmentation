@@ -1,0 +1,414 @@
+{
+  "args": {
+    "exp": "baseline",
+    "backbone": "facebook/dinov3-vits16-pretrain-lvd1689m",
+    "epochs": 10,
+    "batch_size": 8,
+    "lr": 0.001,
+    "seed": 0,
+    "overwrite": false
+  },
+  "best_val_score": 0.4244686556041719,
+  "epochs": [
+    {
+      "epoch": 1,
+      "train_loss": 0.9854093929452281,
+      "val_score": 0.19209285018791997,
+      "val": {
+        "binary": {
+          "pixel_accuracy": 0.9692940203626939,
+          "traversable_iou": 0.9369657214578315,
+          "non_traversable_iou": 0.9435110034027706,
+          "mean_iou": 0.940238362430301
+        },
+        "semantic": {
+          "pixel_accuracy": 0.8455566980248006,
+          "mean_iou": 0.19209285018791997,
+          "per_class_iou": {
+            "dirt": 0.0,
+            "grass": 0.8117,
+            "tree": 0.8658,
+            "pole": 0.0,
+            "water": 0.0,
+            "sky": 0.5003,
+            "vehicle": 0.0,
+            "container/generic-object": 0.0,
+            "asphalt": 0.2142,
+            "gravel": 0.5403,
+            "building": 0.1436,
+            "mulch": 0.7603,
+            "log": 0.0,
+            "person": 0.0,
+            "fence": 0.0,
+            "bush": 0.0055,
+            "sign": 0.0,
+            "rock": 0.0,
+            "concrete": 0.0,
+            "picnic-table": 0.0
+          }
+        }
+      },
+      "seconds": 3.1
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.40542166559926923,
+      "val_score": 0.27974584281340376,
+      "val": {
+        "binary": {
+          "pixel_accuracy": 0.9713295143496697,
+          "traversable_iou": 0.9407438797193616,
+          "non_traversable_iou": 0.9473772295693711,
+          "mean_iou": 0.9440605546443663
+        },
+        "semantic": {
+          "pixel_accuracy": 0.8923308601868902,
+          "mean_iou": 0.27974584281340376,
+          "per_class_iou": {
+            "dirt": 0.0,
+            "grass": 0.8527,
+            "tree": 0.8727,
+            "pole": 0.0,
+            "water": 0.0,
+            "sky": 0.5515,
+            "vehicle": 0.4874,
+            "container/generic-object": 0.0,
+            "asphalt": 0.9387,
+            "gravel": 0.813,
+            "building": 0.2207,
+            "mulch": 0.8184,
+            "log": 0.0002,
+            "person": 0.0,
+            "fence": 0.0087,
+            "bush": 0.031,
+            "sign": 0.0,
+            "rock": 0.0,
+            "concrete": 0.0,
+            "picnic-table": 0.0
+          }
+        }
+      },
+      "seconds": 2.7
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.3516448012763454,
+      "val_score": 0.3045238141872996,
+      "val": {
+        "binary": {
+          "pixel_accuracy": 0.9718725910941528,
+          "traversable_iou": 0.9415210452730669,
+          "non_traversable_iou": 0.9485923073511169,
+          "mean_iou": 0.9450566763120919
+        },
+        "semantic": {
+          "pixel_accuracy": 0.8960105331837114,
+          "mean_iou": 0.3045238141872996,
+          "per_class_iou": {
+            "dirt": 0.0,
+            "grass": 0.8551,
+            "tree": 0.8791,
+            "pole": 0.0,
+            "water": 0.0,
+            "sky": 0.559,
+            "vehicle": 0.511,
+            "container/generic-object": 0.0,
+            "asphalt": 0.9406,
+            "gravel": 0.8178,
+            "building": 0.2756,
+            "mulch": 0.8289,
+            "log": 0.195,
+            "person": 0.0,
+            "fence": 0.1203,
+            "bush": 0.108,
+            "sign": 0.0,
+            "rock": 0.0,
+            "concrete": 0.0001,
+            "picnic-table": 0.0
+          }
+        }
+      },
+      "seconds": 2.8
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.3253646629952615,
+      "val_score": 0.31854448336843755,
+      "val": {
+        "binary": {
+          "pixel_accuracy": 0.9717484901549446,
+          "traversable_iou": 0.9412700538302624,
+          "non_traversable_iou": 0.9483717739128622,
+          "mean_iou": 0.9448209138715623
+        },
+        "semantic": {
+          "pixel_accuracy": 0.8974715617236468,
+          "mean_iou": 0.31854448336843755,
+          "per_class_iou": {
+            "dirt": 0.0,
+            "grass": 0.8535,
+            "tree": 0.8824,
+            "pole": 0.0,
+            "water": 0.0,
+            "sky": 0.5572,
+            "vehicle": 0.5244,
+            "container/generic-object": 0.0,
+            "asphalt": 0.9475,
+            "gravel": 0.8278,
+            "building": 0.3138,
+            "mulch": 0.8285,
+            "log": 0.286,
+            "person": 0.0,
+            "fence": 0.2255,
+            "bush": 0.1242,
+            "sign": 0.0,
+            "rock": 0.0,
+            "concrete": 0.0,
+            "picnic-table": 0.0
+          }
+        }
+      },
+      "seconds": 2.8
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.3096526056047409,
+      "val_score": 0.33673952697579546,
+      "val": {
+        "binary": {
+          "pixel_accuracy": 0.9738391194044884,
+          "traversable_iou": 0.9454338893146874,
+          "non_traversable_iou": 0.9521499500303391,
+          "mean_iou": 0.9487919196725132
+        },
+        "semantic": {
+          "pixel_accuracy": 0.8994430108282077,
+          "mean_iou": 0.33673952697579546,
+          "per_class_iou": {
+            "dirt": 0.0,
+            "grass": 0.8582,
+            "tree": 0.8808,
+            "pole": 0.0,
+            "water": 0.0037,
+            "sky": 0.5597,
+            "vehicle": 0.5356,
+            "container/generic-object": 0.0,
+            "asphalt": 0.9455,
+            "gravel": 0.8369,
+            "building": 0.314,
+            "mulch": 0.8307,
+            "log": 0.3039,
+            "person": 0.0,
+            "fence": 0.2519,
+            "bush": 0.0598,
+            "sign": 0.0,
+            "rock": 0.3515,
+            "concrete": 0.0025,
+            "picnic-table": 0.0
+          }
+        }
+      },
+      "seconds": 2.8
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.2989443965977238,
+      "val_score": 0.34345566597289756,
+      "val": {
+        "binary": {
+          "pixel_accuracy": 0.9735361923296897,
+          "traversable_iou": 0.9449074573490482,
+          "non_traversable_iou": 0.9515414195976932,
+          "mean_iou": 0.9482244384733707
+        },
+        "semantic": {
+          "pixel_accuracy": 0.8998671311001726,
+          "mean_iou": 0.34345566597289756,
+          "per_class_iou": {
+            "dirt": 0.0,
+            "grass": 0.8564,
+            "tree": 0.8821,
+            "pole": 0.0168,
+            "water": 0.0911,
+            "sky": 0.5662,
+            "vehicle": 0.5294,
+            "container/generic-object": 0.0,
+            "asphalt": 0.9502,
+            "gravel": 0.839,
+            "building": 0.33,
+            "mulch": 0.8302,
+            "log": 0.3029,
+            "person": 0.0,
+            "fence": 0.2202,
+            "bush": 0.0962,
+            "sign": 0.0,
+            "rock": 0.353,
+            "concrete": 0.0,
+            "picnic-table": 0.0055
+          }
+        }
+      },
+      "seconds": 2.8
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.28845476719640917,
+      "val_score": 0.38162333329068343,
+      "val": {
+        "binary": {
+          "pixel_accuracy": 0.9735903956236543,
+          "traversable_iou": 0.9447749670880519,
+          "non_traversable_iou": 0.9518241362956765,
+          "mean_iou": 0.9482995516918642
+        },
+        "semantic": {
+          "pixel_accuracy": 0.8997083982076678,
+          "mean_iou": 0.38162333329068343,
+          "per_class_iou": {
+            "dirt": 0.0,
+            "grass": 0.8536,
+            "tree": 0.8798,
+            "pole": 0.0549,
+            "water": 0.479,
+            "sky": 0.5708,
+            "vehicle": 0.5526,
+            "container/generic-object": 0.0,
+            "asphalt": 0.947,
+            "gravel": 0.8561,
+            "building": 0.3454,
+            "mulch": 0.827,
+            "log": 0.2962,
+            "person": 0.0,
+            "fence": 0.2934,
+            "bush": 0.1015,
+            "sign": 0.0,
+            "rock": 0.4514,
+            "concrete": 0.0015,
+            "picnic-table": 0.1223
+          }
+        }
+      },
+      "seconds": 2.8
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.2797144055366516,
+      "val_score": 0.39471829133764935,
+      "val": {
+        "binary": {
+          "pixel_accuracy": 0.9726940654997972,
+          "traversable_iou": 0.9428095510735585,
+          "non_traversable_iou": 0.9503392784320479,
+          "mean_iou": 0.9465744147528032
+        },
+        "semantic": {
+          "pixel_accuracy": 0.9003336000254688,
+          "mean_iou": 0.39471829133764935,
+          "per_class_iou": {
+            "dirt": 0.0,
+            "grass": 0.8504,
+            "tree": 0.8828,
+            "pole": 0.1025,
+            "water": 0.575,
+            "sky": 0.5691,
+            "vehicle": 0.576,
+            "container/generic-object": 0.0,
+            "asphalt": 0.9505,
+            "gravel": 0.8536,
+            "building": 0.3416,
+            "mulch": 0.8316,
+            "log": 0.3031,
+            "person": 0.0,
+            "fence": 0.2838,
+            "bush": 0.1665,
+            "sign": 0.0,
+            "rock": 0.4664,
+            "concrete": 0.0,
+            "picnic-table": 0.1415
+          }
+        }
+      },
+      "seconds": 2.8
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.27805828014689105,
+      "val_score": 0.4126987690195663,
+      "val": {
+        "binary": {
+          "pixel_accuracy": 0.9743257188516149,
+          "traversable_iou": 0.9463297524646461,
+          "non_traversable_iou": 0.9530894947825412,
+          "mean_iou": 0.9497096236235937
+        },
+        "semantic": {
+          "pixel_accuracy": 0.9028580047417072,
+          "mean_iou": 0.4126987690195663,
+          "per_class_iou": {
+            "dirt": 0.0,
+            "grass": 0.8597,
+            "tree": 0.8831,
+            "pole": 0.1433,
+            "water": 0.502,
+            "sky": 0.5719,
+            "vehicle": 0.584,
+            "container/generic-object": 0.0,
+            "asphalt": 0.9523,
+            "gravel": 0.8526,
+            "building": 0.3788,
+            "mulch": 0.832,
+            "log": 0.3273,
+            "person": 0.0,
+            "fence": 0.2698,
+            "bush": 0.1586,
+            "sign": 0.0,
+            "rock": 0.5277,
+            "concrete": 0.0,
+            "picnic-table": 0.4108
+          }
+        }
+      },
+      "seconds": 2.8
+    },
+    {
+      "epoch": 10,
+      "train_loss": 0.2704016378810329,
+      "val_score": 0.4244686556041719,
+      "val": {
+        "binary": {
+          "pixel_accuracy": 0.9732329670249378,
+          "traversable_iou": 0.9437714163639913,
+          "non_traversable_iou": 0.9513969491706925,
+          "mean_iou": 0.9475841827673419
+        },
+        "semantic": {
+          "pixel_accuracy": 0.9018576669217279,
+          "mean_iou": 0.4244686556041719,
+          "per_class_iou": {
+            "dirt": 0.0,
+            "grass": 0.8586,
+            "tree": 0.8802,
+            "pole": 0.142,
+            "water": 0.6157,
+            "sky": 0.5719,
+            "vehicle": 0.5887,
+            "container/generic-object": 0.0,
+            "asphalt": 0.9491,
+            "gravel": 0.8561,
+            "building": 0.3887,
+            "mulch": 0.8342,
+            "log": 0.3341,
+            "person": 0.0,
+            "fence": 0.3312,
+            "bush": 0.1298,
+            "sign": 0.0,
+            "rock": 0.5609,
+            "concrete": 0.002,
+            "picnic-table": 0.4462
+          }
+        }
+      },
+      "seconds": 2.8
+    }
+  ]
+}

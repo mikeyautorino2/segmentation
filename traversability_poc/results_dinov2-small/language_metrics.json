@@ -1,0 +1,12 @@
+{
+  "binary": {
+    "pixel_accuracy": 0.9759992735118344,
+    "traversable_iou": 0.9495990977880118,
+    "non_traversable_iou": 0.9561874124606374,
+    "mean_iou": 0.9528932551243245
+  },
+  "checkpoint": "checkpoints/language.pt",
+  "backbone": "facebook/dinov2-small",
+  "best_epoch": 10,
+  "num_val_images": 100
+}

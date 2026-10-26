@@ -1,0 +1,38 @@
+{
+  "binary": {
+    "pixel_accuracy": 0.9749747045081707,
+    "traversable_iou": 0.9473976241161233,
+    "non_traversable_iou": 0.9544398792460186,
+    "mean_iou": 0.9509187516810709
+  },
+  "semantic": {
+    "pixel_accuracy": 0.8952610813117257,
+    "mean_iou": 0.4385191233825636,
+    "per_class_iou": {
+      "dirt": 0.0,
+      "grass": 0.842,
+      "tree": 0.8799,
+      "pole": 0.1983,
+      "water": 0.5111,
+      "sky": 0.5542,
+      "vehicle": 0.6166,
+      "container/generic-object": 0.2067,
+      "asphalt": 0.9278,
+      "gravel": 0.8099,
+      "building": 0.3168,
+      "mulch": 0.8132,
+      "log": 0.345,
+      "person": 0.1184,
+      "fence": 0.4017,
+      "bush": 0.1303,
+      "sign": 0.0,
+      "rock": 0.5113,
+      "concrete": 0.0152,
+      "picnic-table": 0.5718
+    }
+  },
+  "checkpoint": "checkpoints/baseline.pt",
+  "backbone": "facebook/dinov2-small",
+  "best_epoch": 10,
+  "num_val_images": 100
+}

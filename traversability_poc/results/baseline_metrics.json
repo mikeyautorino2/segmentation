@@ -1,0 +1,38 @@
+{
+  "binary": {
+    "pixel_accuracy": 0.9732329670249378,
+    "traversable_iou": 0.9437714163639913,
+    "non_traversable_iou": 0.9513969491706925,
+    "mean_iou": 0.9475841827673419
+  },
+  "semantic": {
+    "pixel_accuracy": 0.9018576669217279,
+    "mean_iou": 0.4244686556041719,
+    "per_class_iou": {
+      "dirt": 0.0,
+      "grass": 0.8586,
+      "tree": 0.8802,
+      "pole": 0.142,
+      "water": 0.6157,
+      "sky": 0.5719,
+      "vehicle": 0.5887,
+      "container/generic-object": 0.0,
+      "asphalt": 0.9491,
+      "gravel": 0.8561,
+      "building": 0.3887,
+      "mulch": 0.8342,
+      "log": 0.3341,
+      "person": 0.0,
+      "fence": 0.3312,
+      "bush": 0.1298,
+      "sign": 0.0,
+      "rock": 0.5609,
+      "concrete": 0.002,
+      "picnic-table": 0.4462
+    }
+  },
+  "checkpoint": "checkpoints/baseline.pt",
+  "backbone": "facebook/dinov3-vits16-pretrain-lvd1689m",
+  "best_epoch": 10,
+  "num_val_images": 100
+}

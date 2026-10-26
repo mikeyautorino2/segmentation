@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+traversability_poc/data/
+traversability_poc/checkpoints/

@@ -1,0 +1,31 @@
+{
+  "source": "LLM-derived (Claude). Prompt: given the RUGD terrain classes and the robot below, label each class 1 if the robot can safely drive over it, else 0.",
+  "robot": "Small skid-steer wheeled UGV (Clearpath Husky class, as used to collect RUGD): ~1 m long, ~15 cm ground clearance, handles packed or loose ground and gentle slopes, cannot climb obstacles taller than ~10 cm, not waterproof.",
+  "ignore_classes": ["void"],
+  "mapping": {
+    "dirt": 1,
+    "sand": 1,
+    "grass": 1,
+    "tree": 0,
+    "pole": 0,
+    "water": 0,
+    "sky": 0,
+    "vehicle": 0,
+    "container/generic-object": 0,
+    "asphalt": 1,
+    "gravel": 1,
+    "building": 0,
+    "mulch": 1,
+    "rock-bed": 0,
+    "log": 0,
+    "bicycle": 0,
+    "person": 0,
+    "fence": 0,
+    "bush": 0,
+    "sign": 0,
+    "rock": 0,
+    "bridge": 1,
+    "concrete": 1,
+    "picnic-table": 0
+  }
+}

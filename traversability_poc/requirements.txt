@@ -1,0 +1,6 @@
+torch>=2.8
+transformers>=4.56
+huggingface_hub
+numpy
+pillow
+matplotlib

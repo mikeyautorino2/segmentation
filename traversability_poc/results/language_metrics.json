@@ -1,0 +1,12 @@
+{
+  "binary": {
+    "pixel_accuracy": 0.976429656612813,
+    "traversable_iou": 0.950818254137592,
+    "non_traversable_iou": 0.9566976756418099,
+    "mean_iou": 0.953757964889701
+  },
+  "checkpoint": "checkpoints/language.pt",
+  "backbone": "facebook/dinov3-vits16-pretrain-lvd1689m",
+  "best_epoch": 6,
+  "num_val_images": 100
+}

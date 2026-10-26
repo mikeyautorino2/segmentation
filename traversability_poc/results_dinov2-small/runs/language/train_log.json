@@ -1,0 +1,154 @@
+{
+  "args": {
+    "exp": "language",
+    "backbone": "facebook/dinov2-small",
+    "epochs": 10,
+    "batch_size": 8,
+    "lr": 0.001,
+    "seed": 0,
+    "overwrite": false
+  },
+  "best_val_score": 0.9528932551243245,
+  "epochs": [
+    {
+      "epoch": 1,
+      "train_loss": 0.1360379161853944,
+      "val_score": 0.949949277944485,
+      "val": {
+        "binary": {
+          "pixel_accuracy": 0.9744558589473721,
+          "traversable_iou": 0.9465201409167204,
+          "non_traversable_iou": 0.9533784149722496,
+          "mean_iou": 0.949949277944485
+        }
+      },
+      "seconds": 2.3
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.09346976954369776,
+      "val_score": 0.9518829597726449,
+      "val": {
+        "binary": {
+          "pixel_accuracy": 0.975472152069839,
+          "traversable_iou": 0.9485147997316965,
+          "non_traversable_iou": 0.9552511198135933,
+          "mean_iou": 0.9518829597726449
+        }
+      },
+      "seconds": 2.1
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.08724072245099852,
+      "val_score": 0.9525205565576409,
+      "val": {
+        "binary": {
+          "pixel_accuracy": 0.9757982292447424,
+          "traversable_iou": 0.949291019702667,
+          "non_traversable_iou": 0.9557500934126146,
+          "mean_iou": 0.9525205565576409
+        }
+      },
+      "seconds": 2.0
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.08317506854091922,
+      "val_score": 0.9505874733267929,
+      "val": {
+        "binary": {
+          "pixel_accuracy": 0.9748067264871217,
+          "traversable_iou": 0.9469744195795933,
+          "non_traversable_iou": 0.9542005270739925,
+          "mean_iou": 0.9505874733267929
+        }
+      },
+      "seconds": 2.0
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.07711157256797437,
+      "val_score": 0.9522572966202774,
+      "val": {
+        "binary": {
+          "pixel_accuracy": 0.9756632429122483,
+          "traversable_iou": 0.948975403958136,
+          "non_traversable_iou": 0.9555391892824188,
+          "mean_iou": 0.9522572966202774
+        }
+      },
+      "seconds": 2.1
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.07867652652484755,
+      "val_score": 0.9523899055023368,
+      "val": {
+        "binary": {
+          "pixel_accuracy": 0.9757386205328787,
+          "traversable_iou": 0.949033068478518,
+          "non_traversable_iou": 0.9557467425261558,
+          "mean_iou": 0.9523899055023368
+        }
+      },
+      "seconds": 2.1
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.07346913200472632,
+      "val_score": 0.9485260401787766,
+      "val": {
+        "binary": {
+          "pixel_accuracy": 0.973742492899704,
+          "traversable_iou": 0.9445795334948107,
+          "non_traversable_iou": 0.9524725468627425,
+          "mean_iou": 0.9485260401787766
+        }
+      },
+      "seconds": 2.1
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.07193923855741177,
+      "val_score": 0.9497656980197258,
+      "val": {
+        "binary": {
+          "pixel_accuracy": 0.9743839855286898,
+          "traversable_iou": 0.9460028771831611,
+          "non_traversable_iou": 0.9535285188562903,
+          "mean_iou": 0.9497656980197258
+        }
+      },
+      "seconds": 2.0
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.07178497242350731,
+      "val_score": 0.9504622806609879,
+      "val": {
+        "binary": {
+          "pixel_accuracy": 0.97474532839554,
+          "traversable_iou": 0.946787829336487,
+          "non_traversable_iou": 0.9541367319854888,
+          "mean_iou": 0.9504622806609879
+        }
+      },
+      "seconds": 2.0
+    },
+    {
+      "epoch": 10,
+      "train_loss": 0.06793303096727017,
+      "val_score": 0.9528932551243245,
+      "val": {
+        "binary": {
+          "pixel_accuracy": 0.9759992735118344,
+          "traversable_iou": 0.9495990977880118,
+          "non_traversable_iou": 0.9561874124606374,
+          "mean_iou": 0.9528932551243245
+        }
+      },
+      "seconds": 2.0
+    }
+  ]
+}
