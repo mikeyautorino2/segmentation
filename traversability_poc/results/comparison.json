@@ -1,30 +1,189 @@
 {
-  "note": "Preliminary proof of concept. The two runs differ in prediction target and loss (semantic CE + post-hoc mapping vs. direct binary BCE), so this comparison does not isolate the causal effect of language priors.",
-  "backbones": {
-    "baseline": "facebook/dinov3-vits16-pretrain-lvd1689m",
-    "language": "facebook/dinov3-vits16-pretrain-lvd1689m"
-  },
-  "num_val_images": 100,
+  "note": "Preliminary proof of concept. All DINO experiments share the backbone, binary target, BCE loss and 385 -> 256 -> 1 head and differ only in the extra input channel: zeros (vision), CLIP prior (language), CLIP prior with prompt groups randomly reassigned (shuffled_prompts), or the CLIP prior of a different image (shuffled_prior). prior_only trains a 1 -> 256 -> 1 head on the CLIP prior alone; prior_threshold is the raw prior > 0.5 without training. Checkpoints are selected on val; metrics are on test sequences never used for training or selection. Single seed.",
+  "backbone": "facebook/dinov3-vits16-pretrain-lvd1689m",
+  "clip_model": "openai/clip-vit-base-patch16",
+  "prompts": "configs/terrain_prompts.json",
+  "split": "test",
+  "num_images": 100,
+  "prompt_groups": [
+    {
+      "prompt": "a photo of a dirt trail.",
+      "real": 1,
+      "shuffled": 0
+    },
+    {
+      "prompt": "a photo of short grass.",
+      "real": 1,
+      "shuffled": 0
+    },
+    {
+      "prompt": "a photo of a gravel path.",
+      "real": 1,
+      "shuffled": 1
+    },
+    {
+      "prompt": "a photo of an asphalt road.",
+      "real": 1,
+      "shuffled": 1
+    },
+    {
+      "prompt": "a photo of a concrete sidewalk.",
+      "real": 1,
+      "shuffled": 0
+    },
+    {
+      "prompt": "a photo of sand.",
+      "real": 1,
+      "shuffled": 0
+    },
+    {
+      "prompt": "a photo of wood mulch.",
+      "real": 1,
+      "shuffled": 0
+    },
+    {
+      "prompt": "a photo of a wooden footbridge.",
+      "real": 1,
+      "shuffled": 0
+    },
+    {
+      "prompt": "a photo of flat open ground a small robot can drive on.",
+      "real": 1,
+      "shuffled": 0
+    },
+    {
+      "prompt": "a photo of a tree trunk.",
+      "real": 0,
+      "shuffled": 0
+    },
+    {
+      "prompt": "a photo of dense bushes.",
+      "real": 0,
+      "shuffled": 0
+    },
+    {
+      "prompt": "a photo of a large rock.",
+      "real": 0,
+      "shuffled": 1
+    },
+    {
+      "prompt": "a photo of a rocky stream bed.",
+      "real": 0,
+      "shuffled": 0
+    },
+    {
+      "prompt": "a photo of a fallen log.",
+      "real": 0,
+      "shuffled": 1
+    },
+    {
+      "prompt": "a photo of water.",
+      "real": 0,
+      "shuffled": 1
+    },
+    {
+      "prompt": "a photo of the sky.",
+      "real": 0,
+      "shuffled": 0
+    },
+    {
+      "prompt": "a photo of a fence.",
+      "real": 0,
+      "shuffled": 0
+    },
+    {
+      "prompt": "a photo of a building wall.",
+      "real": 0,
+      "shuffled": 0
+    },
+    {
+      "prompt": "a photo of a parked car.",
+      "real": 0,
+      "shuffled": 1
+    },
+    {
+      "prompt": "a photo of a person.",
+      "real": 0,
+      "shuffled": 1
+    },
+    {
+      "prompt": "a photo of a bicycle.",
+      "real": 0,
+      "shuffled": 1
+    },
+    {
+      "prompt": "a photo of a pole.",
+      "real": 0,
+      "shuffled": 0
+    },
+    {
+      "prompt": "a photo of a sign.",
+      "real": 0,
+      "shuffled": 0
+    },
+    {
+      "prompt": "a photo of a picnic table.",
+      "real": 0,
+      "shuffled": 1
+    },
+    {
+      "prompt": "a photo of an obstacle a small robot cannot drive over.",
+      "real": 0,
+      "shuffled": 0
+    }
+  ],
   "metrics": {
     "pixel_accuracy": {
-      "baseline": 0.9732329670249378,
-      "language": 0.976429656612813,
-      "language_minus_baseline": 0.0031966895878752233
+      "vision": 0.8458991271620422,
+      "language": 0.8453122679772356,
+      "shuffled_prompts": 0.8455764198376817,
+      "shuffled_prior": 0.8451108461268263,
+      "prior_only": 0.5580090456450837,
+      "prior_threshold": 0.452548828771449,
+      "language_minus_vision": -0.0005868591848066096,
+      "language_minus_shuffled_prompts": -0.000264151860446149,
+      "language_minus_shuffled_prior": 0.00020142185040927796,
+      "language_minus_prior_only": 0.2873032223321519,
+      "language_minus_prior_threshold": 0.3927634392057866
     },
     "traversable_iou": {
-      "baseline": 0.9437714163639913,
-      "language": 0.950818254137592,
-      "language_minus_baseline": 0.0070468377736007115
+      "vision": 0.6590049134182514,
+      "language": 0.6581427462464678,
+      "shuffled_prompts": 0.6584773246183757,
+      "shuffled_prior": 0.6578354311373923,
+      "prior_only": 0.33668888817911713,
+      "prior_threshold": 0.12342677145805371,
+      "language_minus_vision": -0.0008621671717835566,
+      "language_minus_shuffled_prompts": -0.00033457837190786766,
+      "language_minus_shuffled_prior": 0.0003073151090755566,
+      "language_minus_prior_only": 0.3214538580673507,
+      "language_minus_prior_threshold": 0.5347159747884142
     },
     "non_traversable_iou": {
-      "baseline": 0.9513969491706925,
-      "language": 0.9566976756418099,
-      "language_minus_baseline": 0.005300726471117345
+      "vision": 0.7805411228250315,
+      "language": 0.7797084725142375,
+      "shuffled_prompts": 0.7801053236581333,
+      "shuffled_prior": 0.779427644641926,
+      "prior_only": 0.43016746407459633,
+      "prior_threshold": 0.40682422372534777,
+      "language_minus_vision": -0.0008326503107940475,
+      "language_minus_shuffled_prompts": -0.00039685114389587106,
+      "language_minus_shuffled_prior": 0.0002808278723114288,
+      "language_minus_prior_only": 0.34954100843964114,
+      "language_minus_prior_threshold": 0.3728842487888897
     },
     "mean_iou": {
-      "baseline": 0.9475841827673419,
-      "language": 0.953757964889701,
-      "language_minus_baseline": 0.006173782122359084
+      "vision": 0.7197730181216415,
+      "language": 0.7189256093803527,
+      "shuffled_prompts": 0.7192913241382546,
+      "shuffled_prior": 0.7186315378896592,
+      "prior_only": 0.38342817612685676,
+      "prior_threshold": 0.26512549759170073,
+      "language_minus_vision": -0.0008474087412888576,
+      "language_minus_shuffled_prompts": -0.00036571475790192487,
+      "language_minus_shuffled_prior": 0.0002940714906934927,
+      "language_minus_prior_only": 0.3354974332534959,
+      "language_minus_prior_threshold": 0.4538001117886519
     }
   }
 }

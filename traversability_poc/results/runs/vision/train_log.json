@@ -1,0 +1,154 @@
+{
+  "args": {
+    "exp": "vision",
+    "backbone": "facebook/dinov3-vits16-pretrain-lvd1689m",
+    "epochs": 10,
+    "batch_size": 8,
+    "lr": 0.001,
+    "seed": 0,
+    "overwrite": false
+  },
+  "best_val_score": 0.953965255197098,
+  "epochs": [
+    {
+      "epoch": 1,
+      "train_loss": 0.1653068993961619,
+      "val_score": 0.9386402119929749,
+      "val": {
+        "binary": {
+          "pixel_accuracy": 0.9685447176056847,
+          "traversable_iou": 0.9338899736346835,
+          "non_traversable_iou": 0.9433904503512661,
+          "mean_iou": 0.9386402119929749
+        }
+      },
+      "seconds": 1.5
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.09353449189614865,
+      "val_score": 0.9498793353430164,
+      "val": {
+        "binary": {
+          "pixel_accuracy": 0.9744151878375265,
+          "traversable_iou": 0.9465022394958835,
+          "non_traversable_iou": 0.9532564311901492,
+          "mean_iou": 0.9498793353430164
+        }
+      },
+      "seconds": 0.9
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.08729298725243538,
+      "val_score": 0.9416609298300938,
+      "val": {
+        "binary": {
+          "pixel_accuracy": 0.9701591854564585,
+          "traversable_iou": 0.9369107037696043,
+          "non_traversable_iou": 0.9464111558905833,
+          "mean_iou": 0.9416609298300938
+        }
+      },
+      "seconds": 0.9
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.08468276508633167,
+      "val_score": 0.9483466368595456,
+      "val": {
+        "binary": {
+          "pixel_accuracy": 0.9736396408446498,
+          "traversable_iou": 0.944498463085079,
+          "non_traversable_iou": 0.9521948106340121,
+          "mean_iou": 0.9483466368595456
+        }
+      },
+      "seconds": 1.0
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.08378265485648186,
+      "val_score": 0.9460125948014357,
+      "val": {
+        "binary": {
+          "pixel_accuracy": 0.9724209614203022,
+          "traversable_iou": 0.9419235489934635,
+          "non_traversable_iou": 0.9501016406094079,
+          "mean_iou": 0.9460125948014357
+        }
+      },
+      "seconds": 1.1
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.0807799231261015,
+      "val_score": 0.9478886324734397,
+      "val": {
+        "binary": {
+          "pixel_accuracy": 0.973414253557641,
+          "traversable_iou": 0.9438250712208971,
+          "non_traversable_iou": 0.9519521937259824,
+          "mean_iou": 0.9478886324734397
+        }
+      },
+      "seconds": 0.9
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.07745720854689998,
+      "val_score": 0.9526765581654442,
+      "val": {
+        "binary": {
+          "pixel_accuracy": 0.9758888911504661,
+          "traversable_iou": 0.9493308207874471,
+          "non_traversable_iou": 0.9560222955434411,
+          "mean_iou": 0.9526765581654442
+        }
+      },
+      "seconds": 0.8
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.07662677957165626,
+      "val_score": 0.9498914485146295,
+      "val": {
+        "binary": {
+          "pixel_accuracy": 0.9744500807420319,
+          "traversable_iou": 0.9461338253090973,
+          "non_traversable_iou": 0.9536490717201617,
+          "mean_iou": 0.9498914485146295
+        }
+      },
+      "seconds": 1.0
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.07391836656437765,
+      "val_score": 0.9518263866284811,
+      "val": {
+        "binary": {
+          "pixel_accuracy": 0.9754550411262833,
+          "traversable_iou": 0.9482890713926178,
+          "non_traversable_iou": 0.9553637018643444,
+          "mean_iou": 0.9518263866284811
+        }
+      },
+      "seconds": 1.1
+    },
+    {
+      "epoch": 10,
+      "train_loss": 0.07380465532262478,
+      "val_score": 0.953965255197098,
+      "val": {
+        "binary": {
+          "pixel_accuracy": 0.9765462645244511,
+          "traversable_iou": 0.9509141823446317,
+          "non_traversable_iou": 0.9570163280495643,
+          "mean_iou": 0.953965255197098
+        }
+      },
+      "seconds": 0.9
+    }
+  ]
+}

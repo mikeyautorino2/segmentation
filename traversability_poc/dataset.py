@@ -1,6 +1,7 @@
 """RUGD download, preprocessing and PyTorch dataset.
 
-python dataset.py   # downloads RUGD (~5.7 GB) and writes data/rugd/{train,val}/{images,labels}
+python dataset.py   # downloads RUGD (~5.7 GB), writes data/rugd/{train,val,test}/{images,labels}
+                    # and the exact frame lists to splits/{train,val,test}.txt (tracked in git)
 """
 import json
 import os
@@ -15,20 +16,23 @@ from torch.utils.data import Dataset
 ROOT = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(ROOT, "data", "rugd")
 RAW_DIR = os.path.join(DATA_DIR, "raw")
+SPLIT_DIR = os.path.join(ROOT, "splits")  # manifests: one zip-relative label path per line
 URLS = {
     "RUGD_annotations.zip": "http://rugd.vision/data/RUGD_annotations.zip",
     "RUGD_frames-with-annotations.zip": "http://rugd.vision/data/RUGD_frames-with-annotations.zip",
 }
 IMAGE_SIZE = 518
-N_TRAIN, N_VAL = 500, 100
+N_TRAIN, N_VAL, N_TEST = 500, 100, 100
 IGNORE = 255
 
-# Official RUGD sequence-level splits (Wigness et al., IROS 2019). We draw train images from
-# the official train sequences and val images from the official val sequences, so no
-# sequence appears in both.
+# Official RUGD sequence-level splits (Wigness et al., IROS 2019). Train, val and test images
+# come from the official train, val and test sequences respectively, so no sequence appears in
+# more than one split. Val is used for checkpoint selection only; test for final reporting.
 TRAIN_SEQS = ["park-2", "trail", "trail-3", "trail-4", "trail-6", "trail-9", "trail-10",
               "trail-11", "trail-12", "trail-14", "trail-15", "village"]
 VAL_SEQS = ["park-8", "trail-5"]
+TEST_SEQS = ["creek", "park-1", "trail-7", "trail-13"]
+SPLITS = {"train": (TRAIN_SEQS, N_TRAIN), "val": (VAL_SEQS, N_VAL), "test": (TEST_SEQS, N_TEST)}
 
 # RUGD_annotation-colormap.txt: id, name, RGB. Masks are stored as RGB color images.
 CLASSES = [
@@ -82,6 +86,8 @@ def download():
 def pick_frames(names, seqs, n):
     """Evenly spaced frames over the given sequences (adjacent frames are near-duplicates)."""
     pool = sorted(x for x in names if x.split("/")[-2] in seqs)
+    found = {x.split("/")[-2] for x in pool}
+    assert found == set(seqs), f"sequences missing from the archive: {sorted(set(seqs) - found)}"
     idx = np.linspace(0, len(pool) - 1, n).round().astype(int)
     return [pool[i] for i in idx]
 
@@ -93,7 +99,8 @@ def prepare():
     images = {os.path.basename(x): x for x in img_zip.namelist() if x.endswith(".png")}
     labels = [x for x in ann_zip.namelist() if x.endswith(".png")]
 
-    for split, seqs, n in [("train", TRAIN_SEQS, N_TRAIN), ("val", VAL_SEQS, N_VAL)]:
+    os.makedirs(SPLIT_DIR, exist_ok=True)
+    for split, (seqs, n) in SPLITS.items():
         os.makedirs(os.path.join(DATA_DIR, split, "images"), exist_ok=True)
         os.makedirs(os.path.join(DATA_DIR, split, "labels"), exist_ok=True)
         frames = pick_frames(labels, seqs, n)
@@ -105,8 +112,8 @@ def prepare():
                 rgb = Image.open(f).convert("RGB").resize((IMAGE_SIZE, IMAGE_SIZE), Image.NEAREST)
             img.save(os.path.join(DATA_DIR, split, "images", name))
             Image.fromarray(color_to_ids(np.array(rgb))).save(os.path.join(DATA_DIR, split, "labels", name))
-        with open(os.path.join(DATA_DIR, f"{split}.txt"), "w") as f:
-            f.write("\n".join(os.path.basename(x) for x in frames) + "\n")
+        with open(os.path.join(SPLIT_DIR, f"{split}.txt"), "w") as f:
+            f.write("\n".join("/".join(x.split("/")[-2:]) for x in frames) + "\n")
         print(f"{split}: {len(frames)} frames from {seqs}")
 
 
@@ -115,8 +122,8 @@ class RUGD(Dataset):
 
     def __init__(self, split):
         self.dir = os.path.join(DATA_DIR, split)
-        with open(os.path.join(DATA_DIR, f"{split}.txt")) as f:
-            self.names = f.read().split()
+        with open(os.path.join(SPLIT_DIR, f"{split}.txt")) as f:
+            self.names = [os.path.basename(x) for x in f.read().split()]
 
     def __len__(self):
         return len(self.names)

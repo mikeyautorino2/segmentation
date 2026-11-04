@@ -1,0 +1,33 @@
+{
+  "source": "Hand-written terrain descriptions for a small skid-steer wheeled UGV (see terrain_mapping.json 'robot'). Used only by prior.py to build the CLIP spatial prior; ground-truth labels still come from terrain_mapping.json.",
+  "template": "a photo of {}.",
+  "traversable": [
+    "a dirt trail",
+    "short grass",
+    "a gravel path",
+    "an asphalt road",
+    "a concrete sidewalk",
+    "sand",
+    "wood mulch",
+    "a wooden footbridge",
+    "flat open ground a small robot can drive on"
+  ],
+  "non_traversable": [
+    "a tree trunk",
+    "dense bushes",
+    "a large rock",
+    "a rocky stream bed",
+    "a fallen log",
+    "water",
+    "the sky",
+    "a fence",
+    "a building wall",
+    "a parked car",
+    "a person",
+    "a bicycle",
+    "a pole",
+    "a sign",
+    "a picnic table",
+    "an obstacle a small robot cannot drive over"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "binary": {
+    "pixel_accuracy": 0.8455764198376817,
+    "traversable_iou": 0.6584773246183757,
+    "non_traversable_iou": 0.7801053236581333,
+    "mean_iou": 0.7192913241382546
+  },
+  "checkpoint": "checkpoints/shuffled_prompts.pt",
+  "backbone": "facebook/dinov3-vits16-pretrain-lvd1689m",
+  "clip_model": "openai/clip-vit-base-patch16",
+  "best_epoch": 10,
+  "val_score": 0.9539135870221693,
+  "split": "test",
+  "num_images": 100
+}

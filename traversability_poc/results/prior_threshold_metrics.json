@@ -1,0 +1,12 @@
+{
+  "binary": {
+    "pixel_accuracy": 0.452548828771449,
+    "traversable_iou": 0.12342677145805371,
+    "non_traversable_iou": 0.40682422372534777,
+    "mean_iou": 0.26512549759170073
+  },
+  "clip_model": "openai/clip-vit-base-patch16",
+  "split": "test",
+  "num_images": 100,
+  "note": "raw CLIP prior > 0.5, no training"
+}

@@ -1,7 +1,13 @@
-"""Train the segmentation head for one experiment.
+"""Train the binary traversability head for one experiment on cached features.
 
-python train.py --exp baseline   # 25-way semantic segmentation, CrossEntropyLoss
-python train.py --exp language   # binary traversability from the LLM mapping, BCEWithLogitsLoss
+All experiments: binary target (LLM mapping), BCEWithLogitsLoss, same per-patch MLP head.
+python train.py --exp vision             # A: [DINO features, 0]                                385 -> 256 -> 1
+python train.py --exp language           # B: [DINO features, CLIP prior]                       385 -> 256 -> 1
+python train.py --exp shuffled_prompts   # C: [DINO features, prior from shuffled prompt groups] 385 -> 256 -> 1
+python train.py --exp shuffled_prior     #    [DINO features, CLIP prior of another image]      385 -> 256 -> 1
+python train.py --exp prior_only         # D: [CLIP prior] only, no DINO                         1 -> 256 -> 1
+
+Run cache_features.py first.
 """
 import argparse
 import json
@@ -12,16 +18,16 @@ import time
 import numpy as np
 import torch
 import torch.nn.functional as F
-from torch.utils.data import DataLoader
 
-from dataset import IGNORE, NUM_CLASSES, RUGD, VOID_ID, load_mapping
-from evaluate import run
-from model import DEFAULT_BACKBONE, SegModel
+from cache_features import load_cache
+from dataset import IGNORE, load_mapping
+from evaluate import EXPERIMENTS, NO_DINO, run, select_prior
+from model import DEFAULT_BACKBONE, TraversabilityHead
 
 
 def main():
     p = argparse.ArgumentParser()
-    p.add_argument("--exp", choices=["baseline", "language"], required=True)
+    p.add_argument("--exp", choices=EXPERIMENTS, required=True)
     p.add_argument("--backbone", default=DEFAULT_BACKBONE)
     p.add_argument("--epochs", type=int, default=10)
     p.add_argument("--batch-size", type=int, default=8)
@@ -43,46 +49,47 @@ def main():
     device = "cuda"
 
     lut = torch.from_numpy(load_mapping()).to(device)
-    g = torch.Generator().manual_seed(args.seed)
-    train_loader = DataLoader(RUGD("train"), batch_size=args.batch_size, shuffle=True, generator=g,
-                              num_workers=4, pin_memory=True, drop_last=True)
-    val_loader = DataLoader(RUGD("val"), batch_size=args.batch_size, num_workers=4, pin_memory=True)
+    train, val = load_cache(args.backbone, "train", device), load_cache(args.backbone, "val", device)
+    train_prior = select_prior(args.exp, train, args.seed)
+    targets = lut[train["labels"].long()]
+    out_size = train["labels"].shape[-2:]
+    use_dino = args.exp not in NO_DINO
+    in_dim = train["feats"].shape[1] if use_dino else 0
 
-    num_outputs = NUM_CLASSES if args.exp == "baseline" else 1
-    model = SegModel(num_outputs, args.backbone).to(device)
-    opt = torch.optim.AdamW(model.head.parameters(), lr=args.lr)
+    head = TraversabilityHead(in_dim).to(device)
+    opt = torch.optim.AdamW(head.parameters(), lr=args.lr)
+    g = torch.Generator().manual_seed(args.seed)
+    n = len(train["names"])
 
     best, log = -1.0, []
     for epoch in range(1, args.epochs + 1):
-        model.train()
-        t0, total = time.time(), 0.0
-        for x, label, _ in train_loader:
-            x, label = x.to(device, non_blocking=True), label.to(device, non_blocking=True)
-            logits = model(x)
-            if args.exp == "baseline":
-                loss = F.cross_entropy(logits, label, ignore_index=VOID_ID)
-            else:
-                target = lut[label]
-                valid = target != IGNORE
-                loss = F.binary_cross_entropy_with_logits(logits[:, 0][valid], target[valid].float())
+        head.train()
+        t0, total, steps = time.time(), 0.0, 0
+        perm = torch.randperm(n, generator=g).to(device)
+        for i in range(0, n - args.batch_size + 1, args.batch_size):  # drop_last
+            idx = perm[i:i + args.batch_size]
+            feats = train["feats"][idx] if use_dino else None
+            logits = head(feats, None if train_prior is None else train_prior[idx], out_size)
+            target = targets[idx]
+            valid = target != IGNORE
+            loss = F.binary_cross_entropy_with_logits(logits[:, 0][valid], target[valid].float())
             opt.zero_grad()
             loss.backward()
             opt.step()
-            total += loss.item()
+            total, steps = total + loss.item(), steps + 1
 
-        model.eval()
-        metrics, _ = run(model, args.exp, val_loader, lut, device)
-        # Model selection: semantic mIoU for the baseline, binary mIoU for the language run.
-        score = metrics["semantic"]["mean_iou"] if args.exp == "baseline" else metrics["binary"]["mean_iou"]
-        entry = {"epoch": epoch, "train_loss": total / len(train_loader), "val_score": score,
+        head.eval()
+        metrics, _ = run(head, args.exp, val, lut, args.seed)
+        score = metrics["binary"]["mean_iou"]  # model selection on val binary mIoU; test is held out
+        entry = {"epoch": epoch, "train_loss": total / steps, "val_score": score,
                  "val": metrics, "seconds": round(time.time() - t0, 1)}
         log.append(entry)
-        print(f"epoch {epoch}: loss {entry['train_loss']:.4f}  val score {score:.4f}  "
-              f"binary mIoU {metrics['binary']['mean_iou']:.4f}  ({entry['seconds']}s)")
+        print(f"epoch {epoch}: loss {entry['train_loss']:.4f}  val binary mIoU {score:.4f}  ({entry['seconds']}s)")
         if score > best:
             best = score
-            torch.save({"head": model.head.state_dict(), "num_outputs": num_outputs, "backbone": args.backbone,
-                        "exp": args.exp, "epoch": epoch, "val_score": score, "args": vars(args)}, ckpt_path)
+            torch.save({"head": head.state_dict(), "in_dim": in_dim, "exp": args.exp,
+                        "backbone": args.backbone, "clip_model": train["clip_model"], "epoch": epoch,
+                        "val_score": score, "args": vars(args)}, ckpt_path)
         with open(os.path.join(run_dir, "train_log.json"), "w") as f:
             json.dump({"args": vars(args), "best_val_score": best, "epochs": log}, f, indent=2)
 
