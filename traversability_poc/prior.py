@@ -10,7 +10,6 @@ ClipPrior returns two channels from one CLIP pass:
      i.e. the same image and the same text embeddings, but the language no longer means anything
      about traversability. Used by the shuffled_prompts control.
 """
-import json
 import os
 import random
 
@@ -19,7 +18,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from transformers import CLIPModel, CLIPTokenizer
 
-from dataset import MEAN, ROOT, STD
+from dataset import MEAN, ROOT, STD, load_config
 
 DEFAULT_CLIP = "openai/clip-vit-base-patch16"
 DEFAULT_PROMPTS = os.path.join(ROOT, "configs", "terrain_prompts.json")
@@ -34,8 +33,7 @@ def shuffle_groups(groups, seed):
 
 def load_prompts(path=DEFAULT_PROMPTS):
     """-> (list of prompt strings, list of group labels: 1 traversable, 0 not)."""
-    with open(path) as f:
-        cfg = json.load(f)
+    cfg = load_config(path)
     template = cfg.get("template", "{}")
     prompts, groups = [], []
     for group, key in [(1, "traversable"), (0, "non_traversable")]:

@@ -8,5 +8,11 @@
   "clip_model": "openai/clip-vit-base-patch16",
   "split": "test",
   "num_images": 100,
-  "note": "raw CLIP prior > 0.5, no training"
+  "note": "raw CLIP prior > 0.5, no training",
+  "binary_without_creek": {
+    "pixel_accuracy": 0.259819857862679,
+    "traversable_iou": 0.1324766794428811,
+    "non_traversable_iou": 0.16549537003440307,
+    "mean_iou": 0.1489860247386421
+  }
 }

@@ -1,0 +1,722 @@
+{
+  "park-8": {
+    "split": "val",
+    "num_images": 49,
+    "metrics": {
+      "vision": {
+        "traversable_iou": 0.9604884484870859,
+        "non_traversable_iou": 0.9655564201638331,
+        "mean_iou": 0.9630224343254595,
+        "pixel_accuracy": 0.9812530608132807
+      },
+      "language": {
+        "traversable_iou": 0.9604449180914165,
+        "non_traversable_iou": 0.9655209194682428,
+        "mean_iou": 0.9629829187798297,
+        "pixel_accuracy": 0.9812327441657741
+      },
+      "shuffled_prompts": {
+        "traversable_iou": 0.9604372728383544,
+        "non_traversable_iou": 0.9655054103800723,
+        "mean_iou": 0.9629713416092134,
+        "pixel_accuracy": 0.9812264285038151
+      },
+      "shuffled_prior": {
+        "traversable_iou": 0.960517051477614,
+        "non_traversable_iou": 0.9655701295044021,
+        "mean_iou": 0.9630435904910081,
+        "pixel_accuracy": 0.9812635615524414
+      },
+      "prior_only": {
+        "traversable_iou": 0.5861129183817031,
+        "non_traversable_iou": 0.6290642707911034,
+        "mean_iou": 0.6075885945864032,
+        "pixel_accuracy": 0.7568095010687926
+      }
+    },
+    "traversable_fraction": 0.4631533628388885,
+    "void_fraction": 0.00045208823082907077,
+    "classes": {
+      "tree": {
+        "share": 0.4218355877405598,
+        "label": 0,
+        "vision_pred_traversable": 0.015424317943573324
+      },
+      "grass": {
+        "share": 0.2922879710760886,
+        "label": 1,
+        "vision_pred_traversable": 0.994112620304213
+      },
+      "mulch": {
+        "share": 0.0851904140258092,
+        "label": 1,
+        "vision_pred_traversable": 0.9530789511040798
+      },
+      "asphalt": {
+        "share": 0.08321640696946031,
+        "label": 1,
+        "vision_pred_traversable": 0.9875159831791606
+      },
+      "sky": {
+        "share": 0.07635332125128043,
+        "label": 0,
+        "vision_pred_traversable": 0.002659669842332381
+      },
+      "fence": {
+        "share": 0.0181693225582596,
+        "label": 0,
+        "vision_pred_traversable": 0.13783446636080507
+      },
+      "building": {
+        "share": 0.007085555111715383,
+        "label": 0,
+        "vision_pred_traversable": 0.031118505796479175
+      },
+      "vehicle": {
+        "share": 0.006043485655021389,
+        "label": 0,
+        "vision_pred_traversable": 0.08895153475377239
+      },
+      "picnic-table": {
+        "share": 0.0031806658353029796,
+        "label": 0,
+        "vision_pred_traversable": 0.1182237738826849
+      },
+      "pole": {
+        "share": 0.0018590074929212901,
+        "label": 0,
+        "vision_pred_traversable": 0.06734309794615825
+      },
+      "log": {
+        "share": 0.0015242005628893975,
+        "label": 0,
+        "vision_pred_traversable": 0.3845309381237525
+      },
+      "concrete": {
+        "share": 0.0012938972043849517,
+        "label": 1,
+        "vision_pred_traversable": 0.609510933458735
+      },
+      "dirt": {
+        "share": 0.0009552873787370675,
+        "label": 1,
+        "vision_pred_traversable": 0.8246815286624204
+      },
+      "void": {
+        "share": 0.00045208823082907077,
+        "label": null,
+        "vision_pred_traversable": 0.34505383580080756
+      },
+      "container/generic-object": {
+        "share": 0.00028240302844352957,
+        "label": 0,
+        "vision_pred_traversable": 0.3765149474818206
+      },
+      "bush": {
+        "share": 0.00021417908109264188,
+        "label": 0,
+        "vision_pred_traversable": 0.5454545454545454
+      },
+      "sign": {
+        "share": 3.757260868599612e-05,
+        "label": 0,
+        "vision_pred_traversable": 0.20445344129554655
+      },
+      "person": {
+        "share": 1.8634188518358403e-05,
+        "label": 0,
+        "vision_pred_traversable": 1.0
+      }
+    }
+  },
+  "trail-5": {
+    "split": "val",
+    "num_images": 51,
+    "metrics": {
+      "vision": {
+        "traversable_iou": 0.9417400006086872,
+        "non_traversable_iou": 0.9484456145992443,
+        "mean_iou": 0.9450928076039657,
+        "pixel_accuracy": 0.9718796439905091
+      },
+      "language": {
+        "traversable_iou": 0.9416561135010754,
+        "non_traversable_iou": 0.9483938835508476,
+        "mean_iou": 0.9450249985259616,
+        "pixel_accuracy": 0.9718447101462939
+      },
+      "shuffled_prompts": {
+        "traversable_iou": 0.9419586430664181,
+        "non_traversable_iou": 0.9485797379541244,
+        "mean_iou": 0.9452691905102713,
+        "pixel_accuracy": 0.9719704866021399
+      },
+      "shuffled_prior": {
+        "traversable_iou": 0.9418586147517937,
+        "non_traversable_iou": 0.9485418900085764,
+        "mean_iou": 0.945200252380185,
+        "pixel_accuracy": 0.9719359181747051
+      },
+      "prior_only": {
+        "traversable_iou": 0.5819591267456102,
+        "non_traversable_iou": 0.6470549318728983,
+        "mean_iou": 0.6145070293092543,
+        "pixel_accuracy": 0.7633367258627234
+      }
+    },
+    "traversable_fraction": 0.4660160201639903,
+    "void_fraction": 0.0001109282281210512,
+    "classes": {
+      "tree": {
+        "share": 0.44229064891113495,
+        "label": 0,
+        "vision_pred_traversable": 0.008264963931653784
+      },
+      "mulch": {
+        "share": 0.23652229335854136,
+        "label": 1,
+        "vision_pred_traversable": 0.9789677433307742
+      },
+      "grass": {
+        "share": 0.12128613315304208,
+        "label": 1,
+        "vision_pred_traversable": 0.9560016219378542
+      },
+      "gravel": {
+        "share": 0.10747439954798574,
+        "label": 1,
+        "vision_pred_traversable": 0.9898560992591464
+      },
+      "sky": {
+        "share": 0.04763848563530598,
+        "label": 0,
+        "vision_pred_traversable": 0.0011059808869322452
+      },
+      "bush": {
+        "share": 0.022834626911392753,
+        "label": 0,
+        "vision_pred_traversable": 0.21570271472505528
+      },
+      "log": {
+        "share": 0.01400662529438364,
+        "label": 0,
+        "vision_pred_traversable": 0.4096695430783518
+      },
+      "rock": {
+        "share": 0.005153412716437927,
+        "label": 0,
+        "vision_pred_traversable": 0.31652533961033436
+      },
+      "water": {
+        "share": 0.0017695902320022238,
+        "label": 0,
+        "vision_pred_traversable": 0.31173604228609186
+      },
+      "dirt": {
+        "share": 0.0006814997730282763,
+        "label": 1,
+        "vision_pred_traversable": 0.9062835084709414
+      },
+      "building": {
+        "share": 0.0001157511945610969,
+        "label": 0,
+        "vision_pred_traversable": 0.12436868686868686
+      },
+      "container/generic-object": {
+        "share": 0.00011560504406291369,
+        "label": 0,
+        "vision_pred_traversable": 0.7193426042983565
+      },
+      "void": {
+        "share": 0.0001109282281210512,
+        "label": null,
+        "vision_pred_traversable": 0.6805006587615283
+      }
+    }
+  },
+  "creek": {
+    "split": "test",
+    "num_images": 44,
+    "metrics": {
+      "vision": {
+        "traversable_iou": 0.4802540328265277,
+        "non_traversable_iou": 0.7917192763278974,
+        "mean_iou": 0.6359866545772126,
+        "pixel_accuracy": 0.825334506248213
+      },
+      "language": {
+        "traversable_iou": 0.4800507004727302,
+        "non_traversable_iou": 0.7917623515517355,
+        "mean_iou": 0.6359065260122329,
+        "pixel_accuracy": 0.825341850758719
+      },
+      "shuffled_prompts": {
+        "traversable_iou": 0.47857431809001816,
+        "non_traversable_iou": 0.7898999555914816,
+        "mean_iou": 0.6342371368407499,
+        "pixel_accuracy": 0.8238647765965414
+      },
+      "shuffled_prior": {
+        "traversable_iou": 0.4797679676546049,
+        "non_traversable_iou": 0.7915673106723353,
+        "mean_iou": 0.6356676391634701,
+        "pixel_accuracy": 0.825172720129462
+      },
+      "prior_only": {
+        "traversable_iou": 0.1882248978837736,
+        "non_traversable_iou": 0.27596858168153915,
+        "mean_iou": 0.23209673978265638,
+        "pixel_accuracy": 0.3800463511023593
+      }
+    },
+    "traversable_fraction": 0.1888100899919769,
+    "void_fraction": 2.9730000772471817e-05,
+    "classes": {
+      "tree": {
+        "share": 0.36162844512265363,
+        "label": 0,
+        "vision_pred_traversable": 0.0038519931476400627
+      },
+      "bush": {
+        "share": 0.23520708004298738,
+        "label": 0,
+        "vision_pred_traversable": 0.46686592855740994
+      },
+      "rock-bed": {
+        "share": 0.18115997145919926,
+        "label": null,
+        "vision_pred_traversable": 0.9825712390143916
+      },
+      "grass": {
+        "share": 0.11170205016730113,
+        "label": 1,
+        "vision_pred_traversable": 0.9440233912630054
+      },
+      "sky": {
+        "share": 0.031114944483670352,
+        "label": 0,
+        "vision_pred_traversable": 5.9888226791270476e-05
+      },
+      "water": {
+        "share": 0.02306082470175134,
+        "label": 0,
+        "vision_pred_traversable": 0.3273648177123506
+      },
+      "gravel": {
+        "share": 0.017838762771195203,
+        "label": 1,
+        "vision_pred_traversable": 0.9976876581722528
+      },
+      "bridge": {
+        "share": 0.014941231157447374,
+        "label": 1,
+        "vision_pred_traversable": 0.023333333333333334
+      },
+      "dirt": {
+        "share": 0.008037857217393897,
+        "label": 1,
+        "vision_pred_traversable": 0.8502481637986449
+      },
+      "vehicle": {
+        "share": 0.007401499679491957,
+        "label": 0,
+        "vision_pred_traversable": 0.0771422686075254
+      },
+      "fence": {
+        "share": 0.002705260668581132,
+        "label": 0,
+        "vision_pred_traversable": 0.08913867059081373
+      },
+      "sand": {
+        "share": 0.001570269186099302,
+        "label": 1,
+        "vision_pred_traversable": 1.0
+      },
+      "rock": {
+        "share": 0.0014129796948329767,
+        "label": 0,
+        "vision_pred_traversable": 0.26339767413979137
+      },
+      "log": {
+        "share": 0.0013506398641533776,
+        "label": 0,
+        "vision_pred_traversable": 0.46368995359337767
+      },
+      "mulch": {
+        "share": 0.000509475654263299,
+        "label": 1,
+        "vision_pred_traversable": 0.2964256026600166
+      },
+      "container/generic-object": {
+        "share": 0.00015119102956940794,
+        "label": 0,
+        "vision_pred_traversable": 0.0
+      },
+      "sign": {
+        "share": 0.00013247214019414792,
+        "label": 0,
+        "vision_pred_traversable": 0.021099744245524295
+      },
+      "pole": {
+        "share": 4.531495844237157e-05,
+        "label": 0,
+        "vision_pred_traversable": 0.03364485981308411
+      },
+      "void": {
+        "share": 2.9730000772471817e-05,
+        "label": null,
+        "vision_pred_traversable": 0.4672364672364672
+      }
+    }
+  },
+  "park-1": {
+    "split": "test",
+    "num_images": 32,
+    "metrics": {
+      "vision": {
+        "traversable_iou": 0.9288248363702171,
+        "non_traversable_iou": 0.945940604482422,
+        "mean_iou": 0.9373827204263195,
+        "pixel_accuracy": 0.9683022864653855
+      },
+      "language": {
+        "traversable_iou": 0.9276782785986301,
+        "non_traversable_iou": 0.9449768327165788,
+        "mean_iou": 0.9363275556576045,
+        "pixel_accuracy": 0.9677432541689251
+      },
+      "shuffled_prompts": {
+        "traversable_iou": 0.9269848501810061,
+        "non_traversable_iou": 0.9444150767906206,
+        "mean_iou": 0.9356999634858134,
+        "pixel_accuracy": 0.9674121439983341
+      },
+      "shuffled_prior": {
+        "traversable_iou": 0.9263230367043558,
+        "non_traversable_iou": 0.943845733079618,
+        "mean_iou": 0.935084384891987,
+        "pixel_accuracy": 0.967084527779596
+      },
+      "prior_only": {
+        "traversable_iou": 0.5478616804863979,
+        "non_traversable_iou": 0.6247139025931197,
+        "mean_iou": 0.5862877915397589,
+        "pixel_accuracy": 0.7420251131283377
+      }
+    },
+    "traversable_fraction": 0.42046961973924407,
+    "void_fraction": 1.1879295180453481e-05,
+    "classes": {
+      "tree": {
+        "share": 0.3264823962821067,
+        "label": 0,
+        "vision_pred_traversable": 0.0061880684821949
+      },
+      "grass": {
+        "share": 0.32406158226621545,
+        "label": 1,
+        "vision_pred_traversable": 0.989472102905576
+      },
+      "sky": {
+        "share": 0.11174515231585695,
+        "label": 0,
+        "vision_pred_traversable": 3.1266773321104552e-06
+      },
+      "mulch": {
+        "share": 0.05482120030261922,
+        "label": 1,
+        "vision_pred_traversable": 0.9740076266955588
+      },
+      "fence": {
+        "share": 0.046206382023225655,
+        "label": 0,
+        "vision_pred_traversable": 0.14773217053775095
+      },
+      "concrete": {
+        "share": 0.03660744566270628,
+        "label": 1,
+        "vision_pred_traversable": 0.958616082080649
+      },
+      "building": {
+        "share": 0.03479410619251353,
+        "label": 0,
+        "vision_pred_traversable": 0.001630098241033623
+      },
+      "bush": {
+        "share": 0.025344126876462782,
+        "label": 0,
+        "vision_pred_traversable": 0.5299429264661281
+      },
+      "vehicle": {
+        "share": 0.016397852968798914,
+        "label": 0,
+        "vision_pred_traversable": 0.0205045526214861
+      },
+      "log": {
+        "share": 0.010073991704059272,
+        "label": 0,
+        "vision_pred_traversable": 0.10749257216846438
+      },
+      "picnic-table": {
+        "share": 0.0048500134166157335,
+        "label": 0,
+        "vision_pred_traversable": 0.10522524253193738
+      },
+      "gravel": {
+        "share": 0.002908563900359267,
+        "label": 1,
+        "vision_pred_traversable": 1.0
+      },
+      "pole": {
+        "share": 0.0021804329840044126,
+        "label": 0,
+        "vision_pred_traversable": 0.17332549941245592
+      },
+      "asphalt": {
+        "share": 0.0017938900359267154,
+        "label": 1,
+        "vision_pred_traversable": 0.7392715704732844
+      },
+      "container/generic-object": {
+        "share": 0.000775881024433148,
+        "label": 0,
+        "vision_pred_traversable": 0.06124287000900631
+      },
+      "rock": {
+        "share": 0.00060922150087208,
+        "label": 0,
+        "vision_pred_traversable": 0.30797170713056776
+      },
+      "dirt": {
+        "share": 0.0002719426886897929,
+        "label": 1,
+        "vision_pred_traversable": 1.0
+      },
+      "sign": {
+        "share": 4.332448830518328e-05,
+        "label": 0,
+        "vision_pred_traversable": 0.024193548387096774
+      },
+      "person": {
+        "share": 2.061407104843398e-05,
+        "label": 0,
+        "vision_pred_traversable": 0.0
+      },
+      "void": {
+        "share": 1.1879295180453481e-05,
+        "label": null,
+        "vision_pred_traversable": 0.696078431372549
+      }
+    }
+  },
+  "trail-13": {
+    "split": "test",
+    "num_images": 9,
+    "metrics": {
+      "vision": {
+        "traversable_iou": 0.9629301942831511,
+        "non_traversable_iou": 0.9639509392144694,
+        "mean_iou": 0.9634405667488102,
+        "pixel_accuracy": 0.9813836097750852
+      },
+      "language": {
+        "traversable_iou": 0.9629800754606141,
+        "non_traversable_iou": 0.9640403891450365,
+        "mean_iou": 0.9635102323028253,
+        "pixel_accuracy": 0.9814200499810553
+      },
+      "shuffled_prompts": {
+        "traversable_iou": 0.9628067099206826,
+        "non_traversable_iou": 0.9637866672229144,
+        "mean_iou": 0.9632966885717985,
+        "pixel_accuracy": 0.981308658896897
+      },
+      "shuffled_prior": {
+        "traversable_iou": 0.9633238885933112,
+        "non_traversable_iou": 0.9643458269550135,
+        "mean_iou": 0.9638348577741623,
+        "pixel_accuracy": 0.9815881718404167
+      },
+      "prior_only": {
+        "traversable_iou": 0.4317533978380951,
+        "non_traversable_iou": 0.6202714679105167,
+        "mean_iou": 0.5260124328743059,
+        "pixel_accuracy": 0.7052981160827607
+      }
+    },
+    "traversable_fraction": 0.4899700403533872,
+    "void_fraction": 4.140930781857423e-07,
+    "classes": {
+      "grass": {
+        "share": 0.31931959538137145,
+        "label": 1,
+        "vision_pred_traversable": 0.9803612879799775
+      },
+      "tree": {
+        "share": 0.3171919851456531,
+        "label": 0,
+        "vision_pred_traversable": 0.011381319909346311
+      },
+      "sky": {
+        "share": 0.14597112280509963,
+        "label": 0,
+        "vision_pred_traversable": 1.9857705357041543e-05
+      },
+      "gravel": {
+        "share": 0.1311801321453831,
+        "label": 1,
+        "vision_pred_traversable": 1.0
+      },
+      "bush": {
+        "share": 0.04238159836615435,
+        "label": 0,
+        "vision_pred_traversable": 0.1574334623050768
+      },
+      "sand": {
+        "share": 0.024241008796993355,
+        "label": 1,
+        "vision_pred_traversable": 1.0
+      },
+      "mulch": {
+        "share": 0.015229101136437044,
+        "label": 1,
+        "vision_pred_traversable": 0.9923049732169562
+      },
+      "vehicle": {
+        "share": 0.002522655032307542,
+        "label": 0,
+        "vision_pred_traversable": 0.306795797767564
+      },
+      "log": {
+        "share": 0.0010356467885425415,
+        "label": 0,
+        "vision_pred_traversable": 0.7489004398240704
+      },
+      "pole": {
+        "share": 0.0006037477079948123,
+        "label": 0,
+        "vision_pred_traversable": 0.11728395061728394
+      },
+      "water": {
+        "share": 0.0003072570640138208,
+        "label": 0,
+        "vision_pred_traversable": 1.0
+      },
+      "container/generic-object": {
+        "share": 1.5735536971058205e-05,
+        "label": 0,
+        "vision_pred_traversable": 0.9736842105263158
+      },
+      "void": {
+        "share": 4.140930781857423e-07,
+        "label": null,
+        "vision_pred_traversable": 1.0
+      }
+    }
+  },
+  "trail-7": {
+    "split": "test",
+    "num_images": 15,
+    "metrics": {
+      "vision": {
+        "traversable_iou": 0.9368896416080356,
+        "non_traversable_iou": 0.9494249211151868,
+        "mean_iou": 0.9431572813616111,
+        "pixel_accuracy": 0.9711131630673729
+      },
+      "language": {
+        "traversable_iou": 0.9366201124452078,
+        "non_traversable_iou": 0.9492520416957986,
+        "mean_iou": 0.9429360770705032,
+        "pixel_accuracy": 0.9710002888982039
+      },
+      "shuffled_prompts": {
+        "traversable_iou": 0.9368972461824913,
+        "non_traversable_iou": 0.9493758094705551,
+        "mean_iou": 0.9431365278265231,
+        "pixel_accuracy": 0.9710987430193293
+      },
+      "shuffled_prior": {
+        "traversable_iou": 0.9369181967846888,
+        "non_traversable_iou": 0.9494149565435477,
+        "mean_iou": 0.9431665766641182,
+        "pixel_accuracy": 0.9711158979040708
+      },
+      "prior_only": {
+        "traversable_iou": 0.601654226191316,
+        "non_traversable_iou": 0.6437467950151946,
+        "mean_iou": 0.6227005106032553,
+        "pixel_accuracy": 0.7683777296778014
+      }
+    },
+    "traversable_fraction": 0.44222881234992584,
+    "void_fraction": 0.0006663585814164965,
+    "classes": {
+      "tree": {
+        "share": 0.45995165049219106,
+        "label": 0,
+        "vision_pred_traversable": 0.014042472049830357
+      },
+      "mulch": {
+        "share": 0.2991753750441009,
+        "label": 1,
+        "vision_pred_traversable": 0.9659457919725214
+      },
+      "grass": {
+        "share": 0.10182615047479912,
+        "label": 1,
+        "vision_pred_traversable": 0.9694023951043832
+      },
+      "sky": {
+        "share": 0.053256510785468315,
+        "label": 0,
+        "vision_pred_traversable": 1.866106834616282e-05
+      },
+      "gravel": {
+        "share": 0.04022897690851359,
+        "label": 1,
+        "vision_pred_traversable": 1.0
+      },
+      "log": {
+        "share": 0.029072315558802044,
+        "label": 0,
+        "vision_pred_traversable": 0.29185895463713124
+      },
+      "building": {
+        "share": 0.01263969429992596,
+        "label": 0,
+        "vision_pred_traversable": 0.029897981247420047
+      },
+      "pole": {
+        "share": 0.0019193214173909155,
+        "label": 0,
+        "vision_pred_traversable": 0.05203883495145631
+      },
+      "asphalt": {
+        "share": 0.0007036269584532132,
+        "label": 1,
+        "vision_pred_traversable": 0.8813559322033898
+      },
+      "void": {
+        "share": 0.0006663585814164965,
+        "label": null,
+        "vision_pred_traversable": 0.37844891871737507
+      },
+      "sign": {
+        "share": 0.0005011354432203853,
+        "label": 0,
+        "vision_pred_traversable": 0.03817550818046604
+      },
+      "container/generic-object": {
+        "share": 3.2547715945399345e-05,
+        "label": 0,
+        "vision_pred_traversable": 1.0
+      },
+      "bush": {
+        "share": 2.6336319772613208e-05,
+        "label": 0,
+        "vision_pred_traversable": 0.22641509433962265
+      }
+    }
+  }
+}

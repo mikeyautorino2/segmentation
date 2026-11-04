@@ -9,7 +9,13 @@
   "backbone": "facebook/dinov3-vits16-pretrain-lvd1689m",
   "clip_model": "openai/clip-vit-base-patch16",
   "best_epoch": 8,
-  "val_score": 0.611193269384986,
+  "val_score": 0.6111933633443498,
   "split": "test",
-  "num_images": 100
+  "num_images": 100,
+  "binary_without_creek": {
+    "pixel_accuracy": 0.7431995734109795,
+    "traversable_iou": 0.5454761266887637,
+    "non_traversable_iou": 0.6288006273242025,
+    "mean_iou": 0.5871383770064831
+  }
 }

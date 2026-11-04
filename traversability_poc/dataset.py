@@ -5,6 +5,7 @@ python dataset.py   # downloads RUGD (~5.7 GB), writes data/rugd/{train,val,test
 """
 import json
 import os
+import re
 import urllib.request
 import zipfile
 
@@ -62,10 +63,16 @@ def color_to_ids(rgb):
     return ids
 
 
-def load_mapping(path=os.path.join(ROOT, "configs", "terrain_mapping.json")):
-    """Lookup table: class id -> 1 traversable, 0 not, IGNORE for void/unmapped."""
+def load_config(path):
+    """JSON with // line comments allowed (a commented-out entry is simply absent)."""
     with open(path) as f:
-        mapping = json.load(f)["mapping"]
+        text = "\n".join(line for line in f.read().splitlines() if not line.lstrip().startswith("//"))
+    return json.loads(re.sub(r",(\s*[}\]])", r"\1", text))  # tolerate a trailing comma left behind
+
+
+def load_mapping(path=os.path.join(ROOT, "configs", "terrain_mapping.json")):
+    """Lookup table: class id -> 1 traversable, 0 not, IGNORE for void/unmapped (incl. commented-out) classes."""
+    mapping = load_config(path)["mapping"]
     lut = np.full(256, IGNORE, dtype=np.uint8)
     for i, name in enumerate(CLASS_NAMES):
         if i != VOID_ID and name in mapping:

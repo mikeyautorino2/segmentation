@@ -87,6 +87,24 @@ def run(head, exp, cache, lut, seed, batch_size=16):
     return {"binary": binary_metrics(cm)}, preds
 
 
+def subset_metrics(preds, cache, lut, keep):
+    """Binary metrics from stored predictions over the images whose name passes keep(name)."""
+    cm = torch.zeros(2, 2, dtype=torch.long)
+    labels, n = cache["labels"], 0
+    for i, name in enumerate(cache["names"]):
+        if keep(name):
+            pred = torch.from_numpy(preds[name]).long().to(labels.device)
+            cm += confusion(pred, lut[labels[i].long()].long(), 2, IGNORE)
+            n += 1
+    return {"binary": binary_metrics(cm)}, n
+
+
+def table(m, rows):
+    return {k: {**{exp: m[exp][k] for exp in rows},
+                **{f"language_minus_{exp}": m["language"][k] - m[exp][k] for exp in rows if exp != "language"}}
+            for k in m["vision"]}
+
+
 def load(path, device):
     ckpt = torch.load(path, map_location="cpu")
     head = TraversabilityHead(ckpt["in_dim"])
@@ -143,6 +161,8 @@ def main():
     p.add_argument("--checkpoints", default="checkpoints")
     p.add_argument("--split", default="test")
     p.add_argument("--out", default="results")
+    p.add_argument("--exclude-seq", default="creek",
+                   help="also report metrics without this sequence (empty string to skip)")
     args = p.parse_args()
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
@@ -182,10 +202,18 @@ def main():
         "num_images": len(cache["names"]),
         "prompt_groups": [{"prompt": p, "real": r, "shuffled": s} for p, r, s in
                           zip(cache["prompt_list"], cache["groups"], cache["shuffled_groups"])],
-        "metrics": {k: {**{exp: m[exp][k] for exp in rows},
-                        **{f"language_minus_{exp}": m["language"][k] - m[exp][k] for exp in rows if exp != "language"}}
-                    for k in m["vision"]},
+        "metrics": table(m, rows),
     }
+    if args.exclude_seq:
+        keep = lambda name: not name.startswith(args.exclude_seq + "_")
+        sub = {exp: subset_metrics(preds[exp], cache, lut, keep) for exp in rows}
+        for exp in rows:
+            results[exp][f"binary_without_{args.exclude_seq}"] = sub[exp][0]["binary"]
+            if exp in EXPERIMENTS or exp == "prior_threshold":
+                with open(os.path.join(args.out, f"{exp}_metrics.json"), "w") as f:
+                    json.dump(results[exp], f, indent=2)
+        comparison[f"num_images_without_{args.exclude_seq}"] = next(iter(sub.values()))[1]
+        comparison[f"metrics_without_{args.exclude_seq}"] = table({e: sub[e][0]["binary"] for e in rows}, rows)
     with open(os.path.join(args.out, "comparison.json"), "w") as f:
         json.dump(comparison, f, indent=2)
 

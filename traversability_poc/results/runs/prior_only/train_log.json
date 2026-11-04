@@ -6,13 +6,13 @@
     "batch_size": 8,
     "lr": 0.001,
     "seed": 0,
-    "overwrite": false
+    "overwrite": true
   },
-  "best_val_score": 0.611193269384986,
+  "best_val_score": 0.6111933633443498,
   "epochs": [
     {
       "epoch": 1,
-      "train_loss": 0.6059103838859066,
+      "train_loss": 0.6059103829245414,
       "val_score": 0.6105093407881615,
       "val": {
         "binary": {
@@ -22,25 +22,25 @@
           "mean_iou": 0.6105093407881615
         }
       },
-      "seconds": 1.3
-    },
-    {
-      "epoch": 2,
-      "train_loss": 0.5328727715438412,
-      "val_score": 0.6093868189530256,
-      "val": {
-        "binary": {
-          "pixel_accuracy": 0.7581900096097146,
-          "traversable_iou": 0.5880497073401345,
-          "non_traversable_iou": 0.6307239305659167,
-          "mean_iou": 0.6093868189530256
-        }
-      },
       "seconds": 0.9
     },
     {
+      "epoch": 2,
+      "train_loss": 0.5328727725052065,
+      "val_score": 0.6093868686607095,
+      "val": {
+        "binary": {
+          "pixel_accuracy": 0.7581900468884588,
+          "traversable_iou": 0.5880497708486336,
+          "non_traversable_iou": 0.6307239664727853,
+          "mean_iou": 0.6093868686607095
+        }
+      },
+      "seconds": 0.5
+    },
+    {
       "epoch": 3,
-      "train_loss": 0.5214880704879761,
+      "train_loss": 0.5214880685652455,
       "val_score": 0.6086597260077695,
       "val": {
         "binary": {
@@ -50,11 +50,11 @@
           "mean_iou": 0.6086597260077695
         }
       },
-      "seconds": 1.0
+      "seconds": 0.5
     },
     {
       "epoch": 4,
-      "train_loss": 0.5201702622636672,
+      "train_loss": 0.5201702627443499,
       "val_score": 0.6054253397415892,
       "val": {
         "binary": {
@@ -64,25 +64,25 @@
           "mean_iou": 0.6054253397415892
         }
       },
-      "seconds": 0.9
+      "seconds": 0.6
     },
     {
       "epoch": 5,
-      "train_loss": 0.5213583563604662,
-      "val_score": 0.600881589006447,
+      "train_loss": 0.5213583558797836,
+      "val_score": 0.6008815416073383,
       "val": {
         "binary": {
-          "pixel_accuracy": 0.7507686690645846,
-          "traversable_iou": 0.5944726582343745,
-          "non_traversable_iou": 0.6072905197785193,
-          "mean_iou": 0.600881589006447
+          "pixel_accuracy": 0.7507686317858405,
+          "traversable_iou": 0.5944726221756271,
+          "non_traversable_iou": 0.6072904610390495,
+          "mean_iou": 0.6008815416073383
         }
       },
-      "seconds": 0.8
+      "seconds": 0.6
     },
     {
       "epoch": 6,
-      "train_loss": 0.5207050279263528,
+      "train_loss": 0.5207050308104484,
       "val_score": 0.6059616702116418,
       "val": {
         "binary": {
@@ -92,11 +92,11 @@
           "mean_iou": 0.6059616702116418
         }
       },
-      "seconds": 1.0
+      "seconds": 0.6
     },
     {
       "epoch": 7,
-      "train_loss": 0.5204134496950334,
+      "train_loss": 0.5204134530598118,
       "val_score": 0.5994480039163192,
       "val": {
         "binary": {
@@ -106,25 +106,25 @@
           "mean_iou": 0.5994480039163192
         }
       },
-      "seconds": 1.1
+      "seconds": 0.6
     },
     {
       "epoch": 8,
-      "train_loss": 0.5210281870057506,
-      "val_score": 0.611193269384986,
+      "train_loss": 0.5210281855637028,
+      "val_score": 0.6111933633443498,
       "val": {
         "binary": {
-          "pixel_accuracy": 0.7601514680108488,
-          "traversable_iou": 0.5839636138985513,
-          "non_traversable_iou": 0.6384229248714205,
-          "mean_iou": 0.611193269384986
+          "pixel_accuracy": 0.760151542568337,
+          "traversable_iou": 0.5839636894201827,
+          "non_traversable_iou": 0.6384230372685168,
+          "mean_iou": 0.6111933633443498
         }
       },
-      "seconds": 0.7
+      "seconds": 0.6
     },
     {
       "epoch": 9,
-      "train_loss": 0.5220575198050468,
+      "train_loss": 0.5220575207664121,
       "val_score": 0.6044524014440686,
       "val": {
         "binary": {
@@ -134,11 +134,11 @@
           "mean_iou": 0.6044524014440686
         }
       },
-      "seconds": 0.9
+      "seconds": 0.7
     },
     {
       "epoch": 10,
-      "train_loss": 0.5200163496117438,
+      "train_loss": 0.520016352015157,
       "val_score": 0.6006921872317827,
       "val": {
         "binary": {
@@ -148,7 +148,7 @@
           "mean_iou": 0.6006921872317827
         }
       },
-      "seconds": 1.0
+      "seconds": 0.5
     }
   ]
 }

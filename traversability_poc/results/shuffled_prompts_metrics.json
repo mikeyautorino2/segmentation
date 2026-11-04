@@ -1,15 +1,21 @@
 {
   "binary": {
-    "pixel_accuracy": 0.8455764198376817,
-    "traversable_iou": 0.6584773246183757,
-    "non_traversable_iou": 0.7801053236581333,
-    "mean_iou": 0.7192913241382546
+    "pixel_accuracy": 0.8455724316552254,
+    "traversable_iou": 0.6584698275631118,
+    "non_traversable_iou": 0.7801003448767997,
+    "mean_iou": 0.7192850862199558
   },
   "checkpoint": "checkpoints/shuffled_prompts.pt",
   "backbone": "facebook/dinov3-vits16-pretrain-lvd1689m",
   "clip_model": "openai/clip-vit-base-patch16",
   "best_epoch": 10,
-  "val_score": 0.9539135870221693,
+  "val_score": 0.9539157675860773,
   "split": "test",
-  "num_images": 100
+  "num_images": 100,
+  "binary_without_creek": {
+    "pixel_accuracy": 0.9708683657230051,
+    "traversable_iou": 0.9363388129960722,
+    "non_traversable_iou": 0.9490284477758651,
+    "mean_iou": 0.9426836303859687
+  }
 }
